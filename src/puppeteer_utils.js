@@ -173,6 +173,8 @@ const crawl = async opt => {
    * @returns {void}
    */
   const addToQueue = newUrl => {
+    
+    if(newUrl.indexOf(':/') !== -1) return;
     const { hostname, search, hash, port } = url.parse(newUrl);
     newUrl = newUrl.replace(`${search || ""}${hash || ""}`, "");
 
